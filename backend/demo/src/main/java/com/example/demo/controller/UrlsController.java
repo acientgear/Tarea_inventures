@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -50,14 +51,28 @@ public class UrlsController {
         }
     }
 
-    /*@GetMapping("/buscar")
-    public List<UrlsModel> buscar(@RequestParam String url){
-        return this.urlsService.buscarUrl(url);
-    }*/
+    @GetMapping("/buscar")
+    public ResponseEntity<Boolean> buscar(@RequestParam String url){
+        Boolean a = this.urlsService.buscarUrl(url).isEmpty();
+        return ResponseEntity.ok(a);
+
+    }
 
     @GetMapping("/{sufijo}")
-    public String buscarUrl(@PathVariable("sufijo") String param) {
-        return this.urlsService.valUrl(param);
+
+    public ResponseEntity<?> buscarUrl(@PathVariable("sufijo") String param) {
+        System.out.println(param);
+        String  a= this.urlsService.valUrl(param);
+        if (a.equals("url no valida")){
+            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(Collections.singletonMap("error", a));
+        }
+        else {
+            return ResponseEntity.ok(Collections.singletonMap("urlOriginal", a));
+        }
+        
+
+
+        
     }
     
 

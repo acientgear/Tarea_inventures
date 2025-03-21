@@ -38,7 +38,7 @@ public class UrlsService {
         Optional<UrlsModel> a = urlsRepository.findOneByShortUrl(shortUrl);
         String mensaje;
         if (a.isEmpty()){
-            mensaje="Empty";
+            mensaje="url no valida";
         }
         else {
             UrlsModel url=a.get();
