@@ -24,15 +24,22 @@ export default function AcortarUrlPage() {
 
     const handleAcortar = async () => {
         const finalSuffix = sufijo.trim() !== "" ? sufijo : generateSuffix();
-
+    
         try {
-            const response = await shortener.crearUrl(url, finalSuffix);
+            // Construir la URL completa del frontend
+            const frontendBaseUrl = window.location.origin; // Obtener la URL base automáticamente
+            const fullShortUrl = `${frontendBaseUrl}/${finalSuffix}`;
+    
+            // Llamar al servicio para acortar la URL
+            const response = await shortener.crearUrl(url, finalSuffix, fullShortUrl);
+    
             if (response.data && response.data.shortUrl) {
-                setShortUrl(response.data.shortUrl);
+                setShortUrl(fullShortUrl); // Mostrar la URL completa en lugar del sufijo
             } else {
                 setShortUrl("Error al acortar la URL");
             }
         } catch (error) {
+            console.error("Error al acortar la URL:", error);
             setShortUrl("Error al acortar la URL");
         }
     };

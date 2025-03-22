@@ -23,10 +23,11 @@ export class AcortarUrl{
      * @param {customSufijo} suffix this can be a custom suffix for the url or auto generated 
      * @returns 
      */
-     crearUrl( url, customSufijo){
+     crearUrl( url, customSufijo,fullShortUrl){
         return axios.put(this.baseUrl,{
             url:url,
-            shortUrl:customSufijo
+            shortUrl:customSufijo,
+            urlSort:fullShortUrl
         },{
             headers:{
                 'Content-Type':'application/json'

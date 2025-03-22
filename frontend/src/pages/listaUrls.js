@@ -10,7 +10,10 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { listar } from '../service/listaUrls';
 
-
+/**
+ * 
+ * Component to show the list of urls
+ */
 export default class ListUrls extends Component{
   constructor(){
     super();
@@ -22,6 +25,10 @@ export default class ListUrls extends Component{
     this.urlList();
   }
 
+  /**
+   * Function to get the list of urls
+   * 
+   */
   urlList(){
     this.listaUrl.getAll().then(data=>this.setState({productos: data}));
   }
@@ -31,7 +38,12 @@ export default class ListUrls extends Component{
   }
 
 
-
+  /**
+   * 
+   * @returns 
+   * 
+   * 
+   */
   render(){
     return (
       <div>
@@ -39,7 +51,7 @@ export default class ListUrls extends Component{
       <DataTable value={this.state.productos}>
         <Column field='id' header="ID"></Column>
         <Column field='url' header="url"></Column>
-        <Column field='shortUrl' header="url acortada"></Column>
+        <Column field='urlSort' header="url acortada"></Column>
         <Column field='clicks' header=" clicks"></Column>
         <Column field='expDate' header="fecha de expiración"></Column>
       </DataTable>
