@@ -38,8 +38,18 @@ public class UrlsModel {
     private long id;
     @Column
     private String url;
-    @Column(unique = true)
+    @Column(unique = true,nullable=false)
     private String shortUrl;
+    @Column(nullable=false,unique =true )
+    private String urlSort;
+    public String getUrlSort() {
+        return urlSort;
+    }
+
+
+    public void setUrlSort(String urlSort) {
+        this.urlSort = urlSort;
+    }
     @Column(nullable=false)
     private int clicks=0;
     @Column
