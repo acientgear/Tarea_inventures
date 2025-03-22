@@ -62,7 +62,7 @@ public class UrlsService {
      * method that returns the url of a short url if it is valid
      * 
      * @param shortUrl : the short url to validate
-     * @return : the url of the short url if it is valid
+     * @return : the url of the short url if it is valid or message "url no valida" if it is not valid
      * 
      * 
      */
@@ -76,6 +76,10 @@ public class UrlsService {
         else {
             UrlsModel url=a.get();
             LocalDate now=LocalDate.now();
+            /*
+             * verify if the short url is valid
+             * if is valid return the url and increase the number of clicks
+             */
             if (url.getExpDate().isAfter(now) || url.getExpDate().equals(now) ){
                 mensaje=url.getUrl();
                 url.setClicks(url.getClicks()+1);
