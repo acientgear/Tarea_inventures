@@ -20,6 +20,20 @@ URL: [34.133.72.73:3000/](http://34.133.72.73:3000/)
 
 To start the frontend:
 
+#### Configuration
+
+Before running the application, configure the backend URL in the `config` component located in the frontend source directory:
+```js
+const config = {
+   backendURL: "http://34.133.72.73:8080"
+   // backendURL: "http://localhost:8080"
+};
+
+export default config;
+```
+
+#### Installation and Execution
+
 1. Navigate to the `frontend` folder.
 2. Run the following command in the terminal:
    ```sh
@@ -101,3 +115,4 @@ This project meets the following requirements:
 - Original URLs are not unique, allowing for future user accounts where each user can shorten their own URLs.
 - The suffix is unique, and shortened URLs include a timestamp.
 - In this version, the expiration time for suffixes is not renewed, meaning that once a suffix is taken, it cannot be reused.
+
