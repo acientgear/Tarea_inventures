@@ -16,6 +16,20 @@ URL: [34.133.72.73:3000/](http://34.133.72.73:3000/)
 
 ## Installation and Execution
 
+### Cloning the Repository
+
+To get a copy of the project, use the following steps:
+
+1. Open a terminal and navigate to the desired directory.
+2. Run the following command to clone the repository:
+   ```sh
+   git clone <repository-url>
+   ```
+3. Navigate into the project folder:
+   ```sh
+   cd <repository-folder>
+   ```
+
 ### Frontend
 
 To start the frontend:
