@@ -14,25 +14,58 @@ import org.springframework.stereotype.Service;
 import com.example.demo.models.UrlsModel;
 import com.example.demo.repositories.UrlsRepository;
 
+
+
+/*
+ * service class that contains the business logic of the application
+ * 
+ * 
+ */
 @Service
 public class UrlsService {
 
     @Autowired
     UrlsRepository urlsRepository;
    
-
+    /*
+     * method that returns all the urls in the database
+     * 
+     */
     public ArrayList<UrlsModel> obtenerUrls(){
         return (ArrayList<UrlsModel>) urlsRepository.findAll();
 
     };
-
+    /*
+     * method that saves a url in the database or updates it if it already exists
+     * 
+     * 
+     */
     public UrlsModel guardarUrl (UrlsModel urlsModel){
         return urlsRepository.save(urlsModel);
     };
 
+    /*
+     * method that searches if exist a short url in the database
+     * 
+     * @name buscarUrl
+     * 
+     * @param shortUrl : the short url to search
+     * @return : a list of urls that have the short url
+     */
     public List<UrlsModel> buscarUrl(String shortUrl){
         return urlsRepository.findByShortUrl(shortUrl);
     }
+
+
+    /*
+     * 
+     * method that returns the url of a short url if it is valid
+     * 
+     * @param shortUrl : the short url to validate
+     * @return : the url of the short url if it is valid
+     * 
+     * 
+     */
 
     public String valUrl(String shortUrl){
         Optional<UrlsModel> a = urlsRepository.findOneByShortUrl(shortUrl);

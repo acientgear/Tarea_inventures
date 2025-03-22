@@ -1,12 +1,19 @@
 import React from "react";
 import axios from "axios";
+import config from "../components/config";
 
 
 
 export class VerificarUrl{
-    baseUrl="http://localhost:8080/url/buscar";
+    baseUrl=config.backendURl;
 
+
+    /**
+     * 
+     * @param {url} this is short url to verify if it exists in the database  
+     * @returns true o false
+     */
     verificar(url){
-        return axios.get(`http://localhost:8080/url/buscar`,{params:{url},});
+        return axios.get(`${this.baseUrl}/url/buscar`,{params:{url},});
     }
 }

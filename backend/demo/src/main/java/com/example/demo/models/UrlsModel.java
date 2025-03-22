@@ -12,6 +12,22 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 
+
+/*
+ * this class is the model of the urls table in the database
+ * 
+ * 
+ * 
+ * @Entity : this annotation is used to specify that the class is an entity and is mapped to a database table
+ * @Table : this annotation is used to specify the table name that the entity is mapped to
+ * @Id : this annotation is used to specify the primary key of the entity
+ * @GeneratedValue : this annotation is used to specify the generation strategy for the primary key
+ * @Column : this annotation is used to specify the column name of the entity
+ * @PrePersist : this annotation is used to specify the method that will be called before the entity is persisted
+ * 
+ */
+
+
 @Entity
 @Table(name="shortedUrls")
 public class UrlsModel {
